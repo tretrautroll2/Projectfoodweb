@@ -3,7 +3,7 @@ import About from './Pages/About';
 import Home from './Pages/Home';
 import Food from './Pages/Food';
 import Drinks from './Pages/Drinks';
-import Others from './Pages/Others';
+import Others from './Pages/Others';            
 export default function Navbar() {
 const [activeTab, setActiveTab] = useState("Home");
 const NavItems = [

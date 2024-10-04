@@ -11,9 +11,11 @@ export default function Home(){
         <>
         <ul className="container">
         {Allitems.map((item, index) => (<li key={index} className='item'>
+        <div className="item-center">
             <img className='img' src={item.image} alt="ShitImage"></img>
             <h2>{item.name}</h2>
             <p>Price: {item.price}</p>
+        </div>  
             <button>Add to cart</button>
         </li>
         ))}

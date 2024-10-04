@@ -3,6 +3,7 @@ import Pork2 from './img/Pork2.webp'
 import Pork3 from './img/Pork3.webp'
 import Beef1 from './img/Beef1.webp'
 import Beef2 from './img/Beef2.webp'
+import ItemDescription from './ItemInteract'
 export const AllFoodItems = [
   {name: "Legendary Pork",
   price: 200,
@@ -33,9 +34,12 @@ export default function Food(){
         <ul className='no-list container'>
            {AllFoodItems.map((item, index) =>(
           <li key={index} className='item'>
+            <div onClick={ItemDescription} 
+            className='item-center'>
              <img className="img" src={item.image} alt="ShitImage"></img>
              <h2>{item.name}</h2>
              <p>Price: {item.price}</p>
+            </div>
              <button>Add to cart</button>
          </li>
            ))}
