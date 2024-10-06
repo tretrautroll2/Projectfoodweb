@@ -24,24 +24,47 @@ import { AllFoodItems } from "./Food";
 //     image: Beef2
 //     }
 //    ]
-export default function ItemDescription() {
-const [itemModal, setItemModal] = useState(true)
-
-const toggleModal = () => {
-    setItemModal(!itemModal)
-}
-    return(
-<>
-<div>
+export default function ItemDescription({open, onClose, description}){
+if (!open) return null;
+return(
     <div>
-        <h2>Hello</h2>
-        <p>World</p>
-        <button onClick={toggleModal}>Close</button>
+    <h1>{description}</h1>
+    <p onClick={onClose}>x</p>
     </div>
-</div>
-</>
 )
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //     const [itemModal, setItemModal] = useState(true)
+
+// const toggleModal = () => {
+//     setItemModal(!itemModal)
+// }
+//     return(
+// <>
+// <div>
+//     <div className="item-description">
+//         <h2>Hello</h2>
+//         <p>World</p>
+//         <button onClick={toggleModal}>Close</button>
+//     </div>
+// </div>
+// </>
+// )
+
+
+// }
 

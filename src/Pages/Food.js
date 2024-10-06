@@ -4,6 +4,7 @@ import Pork3 from './img/Pork3.webp'
 import Beef1 from './img/Beef1.webp'
 import Beef2 from './img/Beef2.webp'
 import ItemDescription from './ItemInteract'
+import { useState } from 'react'
 export const AllFoodItems = [
   {name: "Legendary Pork",
   price: 200,
@@ -27,6 +28,7 @@ export const AllFoodItems = [
   }
  ]
 export default function Food(){
+  const [openModal, setOpenModal] = useState(false);
 
 
     return(
@@ -34,17 +36,18 @@ export default function Food(){
         <ul className='no-list container'>
            {AllFoodItems.map((item, index) =>(
           <li key={index} className='item'>
-            <div onClick={ItemDescription} 
+            <div onClick={() => setOpenModal(true)}
             className='item-center'>
              <img className="img" src={item.image} alt="ShitImage"></img>
              <h2>{item.name}</h2>
              <p>Price: {item.price}</p>
             </div>
              <button>Add to cart</button>
+             
          </li>
-           ))}
-           
+           ))}   
         </ul>
+        <ItemDescription open={openModal} onClose={() => setOpenModal(false)} description={"This is the product description"} /> 
         </>
     )
 }

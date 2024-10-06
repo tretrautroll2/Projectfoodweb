@@ -5,21 +5,21 @@ import Food from './Pages/Food';
 import Drinks from './Pages/Drinks';
 import Others from './Pages/Others';            
 export default function Navbar() {
-const [activeTab, setActiveTab] = useState("Home");
+const [activeTab, setActiveTab] = useState("HOME");
 const NavItems = [
-    {name: "About",
+    {name: "ABOUT",
     info: <About />
     },
-    {name: "Home",
+    {name: "HOME",
     info: <Home />
     },
-    {name: "Food",
+    {name: "FOOD",
     info: <Food />
     },
-    {name: "Drinks",
+    {name: "DRINKS",
     info: <Drinks />
     },
-    {name: "Others",
+    {name: "OTHERS",
     info: <Others />
     }
 ]
