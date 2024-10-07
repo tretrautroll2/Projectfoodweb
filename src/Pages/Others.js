@@ -5,19 +5,23 @@ import Stick from './img/Stick.webp'
 export const AllOtherItems = [
     {name: "Diamond Sword",
     price: 3000,
-    image: DiamondSword 
+    image: DiamondSword,
+    details:"" 
     },
     {name: "Dirt",
     price: 4000,
-    image: Dirt
+    image: Dirt,
+    details:""
     },
     {name: "Saddle",
     price: 100000,
-    image: Saddle
+    image: Saddle,
+    details:""
     },
     {name: "Legendary Stick",
     price: 3000000,
-    image: Stick
+    image: Stick,
+    details:""
     }
 ]
 export default function Others(){

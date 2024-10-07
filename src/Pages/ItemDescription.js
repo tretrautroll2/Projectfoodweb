@@ -2,33 +2,13 @@ import { useState } from "react";
 import { Allitems } from "./Home";
 import { AllFoodItems } from "./Food";
 
-// AllFoodItems = [
-//     {name: "Legendary Pork",
-//     price: 200,
-//     image: Pork1
-//     },
-//     {name: "Mythic Pork",
-//     price: 150,
-//     image: Pork2
-//     },
-//     {name: "Common Pork",
-//     price: 50,
-//     image: Pork3
-//     },
-//     {name: "Legendary Beef",
-//     price: 300,
-//     image: Beef1
-//     },
-//     {name: "Mythic Beef",
-//     price: 250,
-//     image: Beef2
-//     }
-//    ]
-export default function ItemDescription({open, onClose, description}){
+
+export default function ItemDescription({open, onClose, title, description, selectedItem}){
 if (!open) return null;
 return(
-    <div>
-    <h1>{description}</h1>
+    <div className="item-description">
+    <h1>{title}</h1>
+    <p>{description}</p>
     <p onClick={onClose}>x</p>
     </div>
 )
