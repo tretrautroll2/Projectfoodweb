@@ -1,17 +1,17 @@
     const NavItems = [
-    {name: "ABOUT",
+    {name: "About",
     info: "/"
     },
-    {name: "HOME",
+    {name: "Home",
     info: "/Home"
     },
-    {name: "FOOD",
+    {name: "Food",
     info: "/Food"
     },
-    {name: "DRINKS",
+    {name: "Drinks",
     info: "/Drinks"
     },
-    {name: "OTHERS",
+    {name: "Others",
     info: "/Others"
     }
 ];
@@ -22,7 +22,7 @@ return(
     <nav >
         <ul className='nav no-list'>
           {NavItems.map(item => <li key={item.name}>
-            <a className="no-link" href={item.info}>{item.name}</a>
+            <a className="no-link nav-link" href={item.info}>{item.name}</a>
           </li>)}
         </ul>
     </nav>

@@ -1,8 +1,17 @@
 * {
     box-sizing: border-box;
+    font-family: monospace;
+    background-color: rgba(250, 235, 215);
 }
+.Page-title{
+    display: flex;
+    align-items: center;
+    font-size: 350%;
+    border: 3px solid black;
+}
+
 .nav {
-    background-color: rgb(153, 255, 153);
+    background-color: black;
     color: white;
     display: flex;
     flex-direction: row;
@@ -14,14 +23,30 @@
 @media (max-width: 800px) {
     .nav {
       flex-direction: column;
-      
-      
-    }
+      }
 }
+
+.nav-link{
+    background-color: black;
+    font-family: monospace;
+    font-size: 200%;
+    color: white ;
+}
+.nav-link:hover{
+    background-color: silver;
+    
+}
+.Custom-hr{
+    height: 2px; 
+    background-color: black;
+    border: none; 
+    margin: 20px 0;
+}
+
+
 .no-list{
     list-style-type: none;
-}    
-    
+}        
 .no-link{
     text-decoration: none;
     
@@ -31,13 +56,45 @@
     height: 100px;
     object-fit: cover;
 }
+.logo {
+   width: 5%;
+   height: 5%;
+}
+@media (max-width: 800px) {
+    .logo {
+    width: 15%;
+    height: 15%;
+      }
+}
+
+.Page-about{
+    display: flex;
+    flex-flow: column wrap;
+    margin-left: 10%;
+    
+  
+}
+.Page-about-title{
+    font-size: 300%;
+    
+
+}
+.Page-about-description{
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 150%;
+    border: 2px solid black;
+    padding: 20px;
+    
+}
+
+
 
 .container{
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  padding-left: 5%;
-     
+  margin-left: 8%;   
 }
 @media (max-width: 800px) {
     .container{
@@ -45,14 +102,6 @@
     }
 }
 
-
-.inventory{
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-     */
-    
-}
 .item{
 margin: 20px;
 flex: 0 0 200px;
@@ -60,6 +109,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+font-family: monospace;
 }
 
 .item-center {
@@ -78,9 +128,34 @@ align-items: center;
     height: 70%;
     border: 0cap;
 }
-   
+.item-details-container{
+display: flex;
+flex-direction: column;
+margin-left: 10%;
+margin-right: 10%;
+}
+.item-details-container h1{
+font-size: 300%;
+}
+
+.item-details-container div{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    font-size: 150%;
+    margin-left: 5%;
+    /* border: 2px solid black; */
+}
+.item-details-container div img{
+    width: 200px;
+    height: 200px;
+}
+.item-details-container div p {
+    border: 2px solid black;
+    padding: 20px;
+}
  
 
 .item:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.555); /* Optional hover effect */
 }

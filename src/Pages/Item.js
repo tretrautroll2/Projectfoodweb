@@ -8,10 +8,12 @@ if (!selectedItem) {
 }
 
 return (
-    <div>
+    <div className='item-details-container'>
         <h1>{selectedItem.name}</h1>
+        <div>
         <img src={selectedItem.image} alt={selectedItem.name} />
         <p>{selectedItem.details}</p>
+        </div>
     </div>
 );
 };
