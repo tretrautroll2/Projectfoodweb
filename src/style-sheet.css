@@ -22,7 +22,10 @@
     list-style-type: none;
 }    
     
-
+.no-link{
+    text-decoration: none;
+    
+}
 .img {
     width: 100px;
     height: 100px;

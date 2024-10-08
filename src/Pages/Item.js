@@ -1,0 +1,17 @@
+import { useParams } from 'react-router-dom';
+import { Allitems } from './Home';
+export default function Item() {
+const {id} = useParams();
+const selectedItem = Allitems.find(item => item.id === parseInt(id))
+if (!selectedItem) {
+    return <p>Item not found</p>;
+}
+
+return (
+    <div>
+        <h1>{selectedItem.name}</h1>
+        <img src={selectedItem.image} alt={selectedItem.name} />
+        <p>{selectedItem.details}</p>
+    </div>
+);
+};

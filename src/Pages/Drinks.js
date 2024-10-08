@@ -3,63 +3,57 @@ import Lava from './img/Lava.webp'
 import Milk from './img/Milk.webp'
 import Coca from './img/Coca.webp'
 import Pepsi from './img/Pepsi.webp'
-import ItemDescription from './ItemDescription'
-import { useState } from 'react'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 export const AllDrinksItems = [
-    {name: "Milk",
+    {id: 6,
+    name: "Milk",
     price: 20,
     image: Milk,
     details:""
     },
-    {name: "Water",
+    {id: 7,
+    name: "Water",
     price: 10,
     image: Water,
     details:""
     },
-    {name: "Lava",
+    {id: 8,
+    name: "Lava",
     price: 300,
     image: Lava,
     details:""
     },
-    {name: "CocaCola",
+    {id: 9,
+    name: "CocaCola",
     price: 150,
     image: Coca,
     details:""
     },
-    {name: "Pepsi",
+    {id: 10,
+    name: "Pepsi",
     price: 300,
     image: Pepsi,
     details:""
     }
 ]
 export default function Drinks(){
-const [openModal, setOpenModal] = useState(false);
-const [selectedItem, setSelectedItem] = useState(null);
-const handleItemClick = (item) => {
-    setSelectedItem(item);
-    setOpenModal(true);
-}
+// const [selectedItem, setSelectedItem] = useState(null);
     return (
         <>
         <ul className='no-list container'>
-        {AllDrinksItems.map((item, index) =>(
-          <li key={index} className='item'>  
-          <div onClick={() => handleItemClick(item)}
-          className='item-center'>
+        {AllDrinksItems.map((item) =>(
+          <li key={item.id} className='item'>  
+          <Link to={`/item/${item.id}`}
+          className='item-center no-link'>
           <img className='img' src={item.image} alt="ShitImage"></img>
           <h2>{item.name}</h2>
           <p>Price: {item.price}</p>
-          </div>
+          </Link>
           <button>Add to cart</button>
       </li>
         ))}
         
      </ul>
-     {openModal && selectedItem &&(
-        <ItemDescription open={openModal} onClose={() => setOpenModal(false)}
-            title={selectedItem.name} description={selectedItem.details} />
-        
-     )}
      </>
     )
 
