@@ -10,6 +10,7 @@ export const Allitems =  [...AllFoodItems, ...AllDrinksItems, ...AllOtherItems]
 
 export default function Home(){
     const { addToCart, cartItems } = useCart();
+    if(!Allitems) return null
         return(
         <> 
         <ul className="container">
