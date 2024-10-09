@@ -24,7 +24,9 @@ export default function Home(){
                     <h2>{item.name}</h2>
                     <p>Price: ${item.price}</p>
                     </Link>
-                    <button onClick={() => addToCart(item.id)}>Add to cart {cartItems[item.id] > 0 && <>({cartItems[item.id]})</>}</button>  
+                    <button onClick={() => addToCart(item.id)}>Add to cart 
+                        {/* {cartItems[item.id] > 0 && <>({cartItems[item.id]})</>} */}
+                        </button>  
                 </li>
                 )
         })}
