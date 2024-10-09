@@ -7,7 +7,7 @@ export const Cart = () => {
     return(
         <div className="cart-container">
         <h2>Your Cart</h2>
-        <div >
+       
         {Allitems.map((item) =>  {if(cartItems[item.id] !== 0 ){
         return(
         
@@ -29,7 +29,7 @@ export const Cart = () => {
         )
         } 
         })}
-        </div>
+       
     {totalAmount > 0 ? (
         <div>
         <p>Your total: ${totalAmount}</p>

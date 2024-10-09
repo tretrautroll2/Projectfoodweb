@@ -201,6 +201,7 @@ font-size: 300%;
     padding: 10px;
     justify-content: flex-start;
     margin-bottom: 5%;
+    width: 100%;;
 }
 
 .cart-item-description {
@@ -219,6 +220,6 @@ font-size: 300%;
 }
 
 .cart-item-img{
-    width: 40%;
-    height: 40%;
+    width: 100x;
+    height: 100px;
 }
