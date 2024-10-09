@@ -11,6 +11,7 @@ import NotFound from './Pages/NotFound';
 import Logo from './Pages/img/Logo.webp'
 import {Cart} from './Pages/Cart';
 import { CartProvider } from './Context';
+import CartIcon from './Pages/img/CartIcon.png'
 function App() {
   return (
   <>

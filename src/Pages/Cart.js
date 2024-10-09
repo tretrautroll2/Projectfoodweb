@@ -7,7 +7,7 @@ export const Cart = () => {
     return(
         <div className="cart-container">
         <h2>Your Cart</h2>
-       
+       <hr className="dotted-line"></hr>
         {Allitems.map((item) =>  {if(cartItems[item.id] !== 0 ){
         return(
         
@@ -29,9 +29,10 @@ export const Cart = () => {
         )
         } 
         })}
+        <hr className="dotted-line"></hr>
        
     {totalAmount > 0 ? (
-        <div>
+        <div className="checkOut">
         <button onClick={clearCart}>Empty your cart</button>
         <p>Your total: ${totalAmount}</p>
         </div>
