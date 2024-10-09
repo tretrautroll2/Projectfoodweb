@@ -5,9 +5,11 @@ import {AllFoodItems} from "./Food";
 import {AllDrinksItems} from "./Drinks";
 import {AllOtherItems} from "./Others";
 import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
+import { useCart } from "../Context";
 export const Allitems =  [...AllFoodItems, ...AllDrinksItems, ...AllOtherItems]
 
 export default function Home(){
+    const { addToCart, cartItems } = useCart();
         return(
         <> 
         <ul className="container">
@@ -18,9 +20,7 @@ export default function Home(){
             <h2>{item.name}</h2>
             <p>Price: {item.price}</p>
             </Link>
-       
-      
-            <button>Add to cart</button>  
+            <button onClick={() => addToCart(item.id)}>Add to cart {cartItems[item.id] > 0 && <>({cartItems[item.id]})</>}</button>  
         </li>
         ))}
         </ul>

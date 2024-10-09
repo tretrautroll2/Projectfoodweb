@@ -4,6 +4,7 @@ import Pork3 from './img/Pork3.webp'
 import Beef1 from './img/Beef1.webp'
 import Beef2 from './img/Beef2.webp'
 import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
+import { useCart } from '../Context'
 export const AllFoodItems = [
   {id: 1,
     name: "Legendary Pork",
@@ -39,7 +40,7 @@ export const AllFoodItems = [
 export default function Food(){
   // const [selectedItem, setSelectedItem] = useState(null);
   // console.log("Selected item:", selectedItem);
-
+const { addToCart } = useCart();
     return(
         <>
         <ul className='no-list container'>
@@ -51,7 +52,7 @@ export default function Food(){
              <h2>{item.name}</h2>
              <p>Price: {item.price}</p>
             </Link>
-             <button>Add to cart</button>   
+             <button onClick={() => addToCart(item)}>Add to cart</button>   
          </li>
            ))}   
         </ul>

@@ -39,7 +39,7 @@ export default function Others(){
             className='item-center no-link'>
             <img className='img' src={item.image} alt="ShitImage"></img>
             <h2>{item.name}</h2>
-            <p>Price: {item.price}</p>
+            <p>Price: ${item.price}</p>
             </Link>
             <button>Add to cart</button>
         </li>

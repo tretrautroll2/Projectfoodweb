@@ -5,9 +5,13 @@
 }
 .Page-title{
     display: flex;
+    flex-flow: row nowrap;
     align-items: center;
     font-size: 350%;
     border: 3px solid black;
+}
+.Page-title-Cart {
+    margin-left: auto;
 }
 
 .nav {
@@ -99,6 +103,7 @@
 @media (max-width: 800px) {
     .container{
         justify-content: center;
+        margin-left: 0;
     }
 }
 
@@ -110,14 +115,33 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 font-family: monospace;
+padding: 20px;
+}
+.item p{
+    font-size: 120%;
 }
 
+
 .item-center {
+    width: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
     align-items: center;
+    white-space: nowrap;
+
+
 }
+.long-item-name{
+    align-self: flex-start;
+    white-space: nowrap;
+    overflow: hidden ;
+    text-overflow: ellipsis;
+    width:100%;
+}
+
+
 
 .item-description {
     display: flex;
@@ -158,4 +182,43 @@ font-size: 300%;
 
 .item:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.555); /* Optional hover effect */
+    padding: 20px;
+}
+
+
+.cart-container{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    border: 2px solid black;    
+}
+
+.cart-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10%;  
+    padding: 10px;
+    justify-content: flex-start;
+    margin-bottom: 5%;
+}
+
+.cart-item-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+.cart-item-button{
+    display: flex;
+    
+}
+.cart-item-button input {
+    width: 6ch
+}
+
+.cart-item-img{
+    width: 40%;
+    height: 40%;
 }
