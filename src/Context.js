@@ -14,7 +14,7 @@ export const useCart = () => {
     return useContext(CartContext);
 }
 
-const cartFromLocalStorage = JSON.parse(localStorage.getItem("cartItems"))
+const cartFromLocalStorage = JSON.parse(localStorage.getItem("cartItems") || getDefaultCart())
 
 export const CartProvider = ( {children} ) => {
     const [cartItems, setCartItems] = useState(cartFromLocalStorage);
