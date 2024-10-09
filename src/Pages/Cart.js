@@ -1,7 +1,7 @@
 import { useCart } from "../Context";
 import { Allitems } from "./Home";
 export const Cart = () => {
-    const {cartItems, removeFromCart, addToCart, updateCartItems, getTotal} = useCart();
+    const {cartItems, removeFromCart, addToCart, updateCartItems, getTotal, clearCart} = useCart();
     const totalAmount = getTotal();
 
     return(
@@ -32,6 +32,7 @@ export const Cart = () => {
        
     {totalAmount > 0 ? (
         <div>
+        <button onClick={clearCart}>Empty your cart</button>
         <p>Your total: ${totalAmount}</p>
         </div>
     ) : (<h2>Your cart is empty</h2>)}

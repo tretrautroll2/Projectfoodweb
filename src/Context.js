@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { Allitems } from "./Pages/Home";
 const CartContext = createContext();
 
@@ -14,10 +14,18 @@ export const useCart = () => {
     return useContext(CartContext);
 }
 
+const cartFromLocalStorage = JSON.parse(localStorage.getItem("cartItems"))
 
 export const CartProvider = ( {children} ) => {
-    const [cartItems, setCartItems] = useState(getDefaultCart());
+    const [cartItems, setCartItems] = useState(cartFromLocalStorage);
     
+    useEffect(() => {
+        localStorage.setItem("cartItems", JSON.stringify(cartItems))
+    }, [getDefaultCart()])
+
+
+
+
     const getTotal = () => {
         let total = 0;
         for(const item in cartItems){
@@ -41,9 +49,14 @@ export const CartProvider = ( {children} ) => {
     const updateCartItems = (newAmount, itemId) => {
         setCartItems((prev) => ({...prev, [itemId] : newAmount}))
     }
-//    console.log(cartItems) 
+
+    const clearCart = () => {
+        setCartItems(() => getDefaultCart())
+    }
+
+   console.log(getDefaultCart()) 
     return(
-    <CartContext.Provider value={{cartItems, addToCart, removeFromCart, updateCartItems, getTotal}}>
+    <CartContext.Provider value={{cartItems, addToCart, removeFromCart, updateCartItems, getTotal, clearCart}}>
     {children}
     </CartContext.Provider>
     )
