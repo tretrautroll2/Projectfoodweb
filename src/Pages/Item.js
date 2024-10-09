@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { Allitems } from './Home';
+import { Allitems } from '../components/cart-item';
+
 export default function Item() {
 const {id} = useParams();
 const selectedItem = Allitems.find(item => item.id === parseInt(id))

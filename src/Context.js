@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Allitems } from "./Pages/Home";
+import { Allitems } from "./components/cart-item";
+
 const CartContext = createContext();
 
 const getDefaultCart = () => {

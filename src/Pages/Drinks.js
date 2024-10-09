@@ -5,7 +5,8 @@ import Coca from './img/Coca.webp'
 import Pepsi from './img/Pepsi.webp'
 import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 import { useCart } from "../Context";
-import { Allitems } from './Home'
+import { Allitems } from '../components/cart-item'
+
 export const AllDrinksItems = [
     {id: 6,
     name: "Milk",
@@ -46,7 +47,8 @@ export const AllDrinksItems = [
 export default function Drinks(){
 // const [selectedItem, setSelectedItem] = useState(null);
 const { addToCart, cartItems } = useCart();
-    return (
+if(!Allitems) return null   
+return (
         <>
         <ul className='no-list container'>
         {Allitems.filter(item => item.type === "drinks").map((item) =>(
@@ -57,7 +59,9 @@ const { addToCart, cartItems } = useCart();
           <h2>{item.name}</h2>
           <p>Price: ${item.price}</p>
           </Link>
-          <button onClick={() => addToCart(item.id)}>Add to cart {cartItems[item.id] > 0 && <>({cartItems[item.id]})</>}</button>  
+          <button onClick={() => addToCart(item.id)}>Add to cart 
+            {/* {cartItems[item.id] > 0 && <>({cartItems[item.id]})</>} */}
+            </button>  
       </li>
         ))}
         
