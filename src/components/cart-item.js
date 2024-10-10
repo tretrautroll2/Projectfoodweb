@@ -16,7 +16,7 @@ const CartItem = () => {
         <>
             <ul className="container">
                 {Allitems.map((item) => {
-                    console.log("Log", cartItems[item.id])
+                    // console.log("Log", cartItems[item.id])
 
                     return (
                         <li key={item.id} className='item'>
