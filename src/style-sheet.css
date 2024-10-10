@@ -200,6 +200,7 @@
     margin-right: 10%;
 }
 
+
 .item-details-container h1 {
     font-size: 300%;
 }
@@ -211,6 +212,12 @@
     font-size: 150%;
     margin-left: 5%;
     /* border: 2px solid black; */
+}
+@media (max-width: 800px) {
+    .item-details-container div {
+        flex-direction: column;
+        align-content: center;
+    }
 }
 
 .item-details-container div img {

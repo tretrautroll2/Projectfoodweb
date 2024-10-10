@@ -1,7 +1,7 @@
 
 import { Allitems} from "../Allitems";
 import { useCart } from "../Context";
-
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 export const Cart = () => {
     const { cartItems, removeFromCart, addToCart, updateCartItems, getTotal, clearCart } = useCart();
     const totalAmount = getTotal();
@@ -15,10 +15,14 @@ export const Cart = () => {
                     return (
 
                         <div className="cart-item">
+                            <Link to={`/item/${item.id}`}>
                             <img src={item.image} alt="Troll" className="cart-item-img"></img>
+                            </Link>
 
                             <div className="cart-item-description">
+                            <Link to={`/item/${item.id}`} className="no-link">
                                 <h2>{item.name}</h2>
+                                </Link>
                                 <p>${item.price}</p>
                                 <div className="cart-item-button">
                                     <button onClick={() => addToCart(item.id)}>+</button>
