@@ -1,5 +1,5 @@
 
-import { Allitems } from "../App";
+import { Allitems} from "../Allitems";
 import { useCart } from "../Context";
 
 export const Cart = () => {

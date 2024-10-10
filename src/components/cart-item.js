@@ -1,7 +1,8 @@
 
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useCart } from "../Context";
-import { Allitems } from '../App';
+import { Allitems } from '../Allitems';
+
 
 
 const CartItem = () => {

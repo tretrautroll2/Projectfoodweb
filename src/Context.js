@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Allitems } from "./App";
-
+import { Allitems } from "./Allitems";
 
 const CartContext = createContext();
 

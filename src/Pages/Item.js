@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { Allitems } from '../App';
+import { Allitems} from "../Allitems";
 
 
 export default function Item() {

@@ -3,15 +3,15 @@ import Navbar from './Navbar';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Item from './Pages/Item';
 import Home from './Pages/Home';
-import Food, { AllFoodItems } from './Pages/Food';
-import Drinks, { AllDrinksItems } from './Pages/Drinks';
-import Others, { AllOtherItems } from './Pages/Others';
+import Food from './Pages/Food';
+import Drinks from './Pages/Drinks';
+import Others from './Pages/Others';
 import About from './Pages/About';
 import NotFound from './Pages/NotFound';
 import Logo from './Pages/img/Logo.webp'
 import { Cart } from './Pages/Cart';
 
-export const Allitems = [...AllFoodItems, ...AllDrinksItems, ...AllOtherItems]
+
 
 function App() {
   return (
