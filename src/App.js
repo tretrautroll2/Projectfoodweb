@@ -15,7 +15,7 @@ import CartIcon from './Pages/img/CartIcon.png'
 function App() {
   return (
     <>
-      <CartProvider>
+ 
         <Router>
           <div className='header'>
             <h1 className='Page-title'><img src={Logo} className='logo' alt='Page Logo'></img>Legendary Items Market
@@ -39,7 +39,7 @@ function App() {
             <Route component={NotFound} />
           </Routes>
         </Router>
-      </CartProvider>
+    
     </>
   );
 }
