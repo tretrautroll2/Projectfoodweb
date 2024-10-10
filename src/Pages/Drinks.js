@@ -1,7 +1,7 @@
 
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useCart } from "../Context";
-import { Allitems} from "../Allitems";
+import { Allitems } from "../Allitems";
 
 export default function Drinks() {
     // const [selectedItem, setSelectedItem] = useState(null);

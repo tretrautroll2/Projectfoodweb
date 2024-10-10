@@ -7,12 +7,12 @@ import { CartProvider } from './Context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  
+
   <React.StrictMode>
-<CartProvider>
-    <App />
+    <CartProvider>
+      <App />
     </CartProvider>
   </React.StrictMode>
-  
+
 );
 

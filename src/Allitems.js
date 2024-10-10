@@ -125,4 +125,4 @@ export const Allitems = [
     image: Stick,
     details: "Introducing the Legendary Stick, a seemingly simple yet extraordinary artifact imbued with the spirit of adventure and the power of nature. Crafted from ancient wood and polished by time, this stick is more than just a tool; it is a symbol of resilience and resourcefulness. Wielded by explorers and heroes alike, the Legendary Stick serves as a trusty companion in the wild, guiding its bearer through uncharted territories and daunting challenges. Its unassuming design belies the strength and versatility it offers—whether used for support on rugged trails, as a makeshift weapon in dire situations, or as a staff of wisdom to guide lost souls home. Each notch and groove tells a tale of epic quests and legendary journeys. Embrace the essence of the Legendary Stick—a humble yet powerful companion that invites you to embark on your own adventures and forge your own path in the great unknown."
   }]
-;
+  ;

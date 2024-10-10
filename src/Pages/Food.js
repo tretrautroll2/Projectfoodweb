@@ -1,11 +1,11 @@
 
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useCart } from '../Context'
-import { Allitems} from "../Allitems";
+import { Allitems } from "../Allitems";
 
 
 export const AllFoodItems = [
-  
+
 ]
 export default function Food() {
   // const [selectedItem, setSelectedItem] = useState(null);

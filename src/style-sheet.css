@@ -9,8 +9,10 @@
     flex-flow: row wrap;
     align-items: center;
     font-size: 200%;
-    border: 3px solid black;
+    border: 3px solid black; 
+    overflow: hidden;
 }
+
 @media (max-width: 800px) {
     .Page-title {
         font-size: 70%;
@@ -19,8 +21,11 @@
 
 
 .Page-title-Cart {
-    margin-left: auto;
-    font-size: 200%;
+    margin-left: auto;  
+    padding: 20px;  
+}
+.Page-title-Cart:hover {
+  transform: scale(1.15); /* Slightly increase size */
 }
 
 .nav {
@@ -46,6 +51,7 @@
     font-size: 200%;
     color: white;
 }
+
 @media (max-width: 800px) {
     .nav-link {
         font-size: 100%;
@@ -205,31 +211,37 @@
     font-size: 300%;
 }
 
-.item-details-container div {
-    display: flex;
+.item-details-container-div {
+    display: flex;  
     flex-direction: row;
     gap: 5%;
     font-size: 150%;
-    margin-left: 5%;
-    /* border: 2px solid black; */
+    align-items: center;
+   
 }
 @media (max-width: 800px) {
-    .item-details-container div {
+    .item-details-container-div {
         flex-direction: column;
         align-content: center;
     }
 }
 
-.item-details-container div img {
+.item-details-container-div-img {
     width: 200px;
     height: 200px;
 }
 
-.item-details-container div p {
+.item-details-container-div-p {
     border: 2px solid black;
     padding: 20px;
 }
 
+.item-profile{
+    display: flex;
+    flex-flow: column wrap; 
+    align-items: center; 
+    gap: 20px
+}
 
 .item:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.555);
