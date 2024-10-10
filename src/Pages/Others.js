@@ -55,7 +55,7 @@ export default function Others() {
                         <p>Price: ${item.price}</p>
                     </Link>
                     <button onClick={() => addToCart(item.id)}>Add to cart
-                        {/* {cartItems[item.id] > 0 && <>({cartItems[item.id]})</>} */}
+                        {cartItems[item.id] > 0 && <>({cartItems[item.id]})</>}
                     </button>
                 </li>
 
