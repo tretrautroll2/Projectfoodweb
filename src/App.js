@@ -19,10 +19,12 @@ function App() {
  
         <Router>
           <div className='header'>
-            <h1 className='Page-title'><img src={Logo} className='logo' alt='Page Logo'></img>Legendary Items Market
+            <div className='Page-title'>
+            <img src={Logo} className='logo' alt='Page Logo'></img>
+            <h1 >Legendary Items Market </h1>
               <Link to="/Cart" className='Page-title-Cart'>Cart</Link>
-            </h1>
-
+           
+            </div>
             <Navbar />
             <hr className='Custom-hr'></hr>
           </div>
