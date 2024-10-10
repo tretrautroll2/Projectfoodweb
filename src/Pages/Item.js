@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { Allitems } from '../components/cart-item';
+import { Allitems } from '../App';
+
 
 export default function Item() {
     const { id } = useParams();

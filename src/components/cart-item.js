@@ -1,12 +1,8 @@
 
-
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useCart } from "../Context";
-import { AllFoodItems } from "../Pages/Food";
-import { AllDrinksItems } from '../Pages/Drinks';
-import { AllOtherItems } from '../Pages/Others';
+import { Allitems } from '../App';
 
-export const Allitems = [...AllFoodItems, ...AllDrinksItems, ...AllOtherItems]
 
 const CartItem = () => {
 

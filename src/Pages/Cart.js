@@ -1,4 +1,5 @@
-import { Allitems } from "../components/cart-item";
+
+import { Allitems } from "../App";
 import { useCart } from "../Context";
 
 export const Cart = () => {

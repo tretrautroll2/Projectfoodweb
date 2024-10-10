@@ -5,7 +5,8 @@ import Coca from './img/Coca.webp'
 import Pepsi from './img/Pepsi.webp'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useCart } from "../Context";
-import { Allitems } from '../components/cart-item'
+import { Allitems } from '../App'
+
 
 export const AllDrinksItems = [
     {

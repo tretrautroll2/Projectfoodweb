@@ -5,7 +5,8 @@ import Beef1 from './img/Beef1.webp'
 import Beef2 from './img/Beef2.webp'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useCart } from '../Context'
-import { Allitems } from '../components/cart-item'
+import { Allitems } from '../App'
+
 
 export const AllFoodItems = [
   {
