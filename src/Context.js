@@ -42,11 +42,11 @@ export const CartProvider = ({ children }) => {
 
 
     const addToCart = (itemId) => {
-        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
+        setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }))
     };
 
     const removeFromCart = (itemId) => {
-        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
+        setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) - 1 }))
     };
 
     const updateCartItems = (newAmount, itemId) => {
