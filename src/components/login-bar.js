@@ -1,20 +1,31 @@
 import { auth } from "../Config/firebase"
 import { signOut } from "firebase/auth"
 import { useAuth } from "./user-status"
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
 export default function LoginBar() {
+    const navigate = useNavigate();
     const handleSignOut = async () => {
         await signOut(auth);
+        navigate('/Home');
+        alert('Signed out!');
     };
-    const { currentUser } = useAuth();
+    const { currentUser, username, loading } = useAuth();
+    if (loading) {
+        return (
+            <div className="login-bar-container">
+                <span>Loading...</span>
+            </div>
+        )
+    }
     return (
         <div >
-            {currentUser ? (
+            {currentUser &&
                 <div className="login-bar-container">
-                    <span>Welcome, {currentUser.email}</span>
+                    <span>Welcome, {username}</span>
                     <button onClick={handleSignOut}>Sign Out</button>
                 </div>
-            ) : (
+            }
+            {currentUser === null &&
                 <div className="login-bar-container">
                     <Link to="/Login">
                         <button>Log in</button>
@@ -23,7 +34,8 @@ export default function LoginBar() {
                         <button>Sign up</button>
                     </Link>
                 </div>
-            )}
+            }
         </div>
+
     )
 }

@@ -1,5 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { Allitems } from "./Allitems";
+import { firestore } from "./Config/firebase";
+import { doc, setDoc, getDoc } from "firebase/firestore";
+import { auth } from "./Config/firebase";
+
 
 const CartContext = createContext();
 
@@ -10,22 +14,44 @@ const getDefaultCart = () => {
     }
     return cart
 }
-const cartFromLocalStorage = JSON.parse(localStorage.getItem("cartItems")) || getDefaultCart();
 
 export const useCart = () => {
     return useContext(CartContext);
 }
 
-
-
 export const CartProvider = ({ children }) => {
-    const [cartItems, setCartItems] = useState(cartFromLocalStorage);
+    const [cartItems, setCartItems] = useState(getDefaultCart());  // used to be useState(cartFromLocalStorage)
+    const userId = auth.currentUser ? auth.currentUser.uid : null;
+    
+    // const cartFromLocalStorage = JSON.parse(localStorage.getItem("cartItems")) || getDefaultCart();
+    // useEffect(() => {
+    //     localStorage.setItem("cartItems", JSON.stringify(cartItems))
+    // }, [cartItems])
+
 
     useEffect(() => {
-        localStorage.setItem("cartItems", JSON.stringify(cartItems))
-    }, [cartItems])
+        const fetchCartData = async () => {
+            if (userId) {
+                const cartDocRef = doc(firestore, 'carts', userId)
+                const cartDoc = await getDoc(cartDocRef);
+                if (cartDoc.exists()) {
+                    setCartItems(cartDoc.data().items);
+                }
+            } 
+        }; 
+        fetchCartData();
 
+    }, [userId])
 
+    useEffect(() => {
+        const saveCartToFirestore = async () => {
+            if (userId) {
+                const cartDocRef = doc(firestore, 'carts', userId)
+                await setDoc(cartDocRef, { items: cartItems })
+            }
+        };
+        saveCartToFirestore();
+    }, [cartItems, userId])
 
 
     const getTotal = () => {
@@ -56,7 +82,7 @@ export const CartProvider = ({ children }) => {
         setCartItems(() => getDefaultCart())
     }
 
-    console.log(getDefaultCart())
+    console.log(cartItems)
     return (
         <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateCartItems, getTotal, clearCart }}>
             {children}
