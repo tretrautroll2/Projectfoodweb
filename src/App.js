@@ -11,10 +11,13 @@ import NotFound from './Pages/NotFound';
 import Logo from './Pages/img/Logo.webp'
 import { Cart } from './Pages/Cart';
 import Cart2 from './Pages/img/Cart2.png'
-
+import Signup from './Pages/Signup.js'
+import Login from './Pages/Login.js'
+import LoginBar from './components/login-bar.js';
 
 
 function App() {
+
   return (
     <>
 
@@ -23,11 +26,13 @@ function App() {
           <div className='Page-title'>
             <img src={Logo} className='logo' alt='Page Logo'></img>
             <h1 >Legendary Items Market </h1>
+            
             <Link to="/Cart" className='Page-title-Cart'>
-            <img src={Cart2} style={{height: '70px', width: '70px'}}></img>
+              <img src={Cart2} style={{ height: '70px', width: '70px' }}></img>
             </Link>
 
           </div>
+          <LoginBar />  
           <Navbar />
           <hr className='Custom-hr'></hr>
         </div>
@@ -42,6 +47,8 @@ function App() {
           <Route path='/Drinks' element={<Drinks />} />
           <Route path='/Others' element={<Others />} />
           <Route path='/Cart' element={<Cart />} />
+          <Route path='/Signup' element={<Signup />} />
+          <Route path='/Login' element={<Login />} />
           <Route component={NotFound} />
         </Routes>
       </Router>

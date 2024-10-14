@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useCart } from "../Context";
 import { Allitems } from '../Allitems';
-
+import Skeleton from 'react-loading-skeleton';
 
 
 const CartItem = () => {

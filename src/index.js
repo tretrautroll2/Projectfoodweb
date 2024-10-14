@@ -3,15 +3,20 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './style-sheet.css';
 import { CartProvider } from './Context';
+import { AuthContextProvider } from './components/user-status';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
   <React.StrictMode>
-    <CartProvider>
-      <App />
-    </CartProvider>
+    <AuthContextProvider>
+      <CartProvider>
+        <App />
+      </CartProvider>
+    </AuthContextProvider>
+
   </React.StrictMode>
 
 );
