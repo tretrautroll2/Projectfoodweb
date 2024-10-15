@@ -4,7 +4,7 @@ import { auth } from '../Config/firebase';
 import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { firestore } from '../Config/firebase';
-import { setDoc, doc, addDoc, collection } from 'firebase/firestore';
+import { setDoc, doc} from 'firebase/firestore';
 
 export default function Signup() {
     const [userName, setUsername] = useState('');

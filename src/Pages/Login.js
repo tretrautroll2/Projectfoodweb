@@ -31,7 +31,7 @@ export default function Login() {
         if (currentUser) {
             navigate('/Home')
         }
-    }, [currentUser, navigate]);
+    }, [currentUser]);
 
 
     return (

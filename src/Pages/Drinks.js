@@ -4,7 +4,6 @@ import { useCart } from "../Context";
 import { Allitems } from "../Allitems";
 
 export default function Drinks() {
-    // const [selectedItem, setSelectedItem] = useState(null);
     const { addToCart, cartItems } = useCart();
     if (!Allitems) return null
     return (

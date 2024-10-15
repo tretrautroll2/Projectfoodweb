@@ -31,7 +31,8 @@ export const AuthContextProvider = ({ children }) => {
         return unsubscribe;
     }, []);
 
-
+    console.log('User:', currentUser)
+    console.log('username:', username)
 
     return (
         <AuthContext.Provider value={{ currentUser, username, loading }}>

@@ -8,8 +8,6 @@ export const AllFoodItems = [
 
 ]
 export default function Food() {
-  // const [selectedItem, setSelectedItem] = useState(null);
-  // console.log("Selected item:", selectedItem);
   const { addToCart, cartItems } = useCart();
 
   if (!Allitems) return null
