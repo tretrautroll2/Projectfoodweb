@@ -14,7 +14,7 @@ export const Cart = () => {
                 if (cartItems[item.id] !== 0) {
                     return (
 
-                        <div className="cart-item">
+                        <div className="cart-item" key={item.id}>
                             <Link to={`/item/${item.id}`}>
                                 <img src={item.image} alt="Troll" className="cart-item-img"></img>
                             </Link>

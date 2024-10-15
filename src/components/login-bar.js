@@ -13,6 +13,7 @@ export default function LoginBar() {
     if (loading) {
         return (
             <div className="login-bar-container">
+                <hr></hr>
                 <span>Loading...</span>
             </div>
         )
@@ -21,12 +22,14 @@ export default function LoginBar() {
         <div >
             {currentUser &&
                 <div className="login-bar-container">
+                    <hr></hr>
                     <span>Welcome, {username}</span>
                     <button onClick={handleSignOut}>Sign Out</button>
                 </div>
             }
             {currentUser === null &&
                 <div className="login-bar-container">
+                    <hr></hr>
                     <Link to="/Login">
                         <button>Log in</button>
                     </Link>

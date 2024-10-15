@@ -3,9 +3,11 @@ import { Allitems } from "./Allitems";
 import { firestore } from "./Config/firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { auth } from "./Config/firebase";
+import { useAuth } from "./components/user-status";
 
 
 const CartContext = createContext();
+
 
 const getDefaultCart = () => {
     let cart = {};
@@ -20,39 +22,44 @@ export const useCart = () => {
 }
 
 export const CartProvider = ({ children }) => {
-    const [cartItems, setCartItems] = useState(getDefaultCart());  // used to be useState(cartFromLocalStorage)
-    const userId = auth.currentUser ? auth.currentUser.uid : null;
+    const cartFromLocalStorage = JSON.parse(localStorage.getItem("cartItems")) || getDefaultCart();
+    const { currentUser } = useAuth();
+    const [cartItems, setCartItems] = useState(cartFromLocalStorage);
+
     
-    // const cartFromLocalStorage = JSON.parse(localStorage.getItem("cartItems")) || getDefaultCart();
-    // useEffect(() => {
-    //     localStorage.setItem("cartItems", JSON.stringify(cartItems))
-    // }, [cartItems])
-
-
     useEffect(() => {
         const fetchCartData = async () => {
-            if (userId) {
-                const cartDocRef = doc(firestore, 'carts', userId)
+            if (currentUser) {           
+                const cartDocRef = doc(firestore, 'carts', currentUser.uid)
                 const cartDoc = await getDoc(cartDocRef);
                 if (cartDoc.exists()) {
                     setCartItems(cartDoc.data().items);
+                    console.log(cartDoc.data().items)
+                }else {
+                    const newCart = getDefaultCart();
+                    await setDoc(cartDocRef, { items: newCart });
+                    setCartItems(newCart);
                 }
-            } 
-        }; 
-        fetchCartData();
-
-    }, [userId])
-
-    useEffect(() => {
-        const saveCartToFirestore = async () => {
-            if (userId) {
-                const cartDocRef = doc(firestore, 'carts', userId)
-                await setDoc(cartDocRef, { items: cartItems })
             }
         };
-        saveCartToFirestore();
-    }, [cartItems, userId])
+        fetchCartData();
+    }, [currentUser])
+    
+    useEffect(() => {
+        if (!currentUser) {
+            localStorage.setItem("cartItems", JSON.stringify(cartItems))
 
+        } else {
+            const saveCartToFirestore = async () => {
+                const cartDocRef = doc(firestore, 'carts', currentUser.uid)
+                await setDoc(cartDocRef, { items: cartItems })
+            };
+            saveCartToFirestore();
+        }
+        
+    }, [cartItems, currentUser])
+
+   
 
     const getTotal = () => {
         let total = 0;
@@ -62,7 +69,7 @@ export const CartProvider = ({ children }) => {
                 total += cartItems[item] * itemInfo.price
             }
         }
-        return total;
+        return total;   
     };
 
 
@@ -82,7 +89,6 @@ export const CartProvider = ({ children }) => {
         setCartItems(() => getDefaultCart())
     }
 
-    console.log(cartItems)
     return (
         <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateCartItems, getTotal, clearCart }}>
             {children}
