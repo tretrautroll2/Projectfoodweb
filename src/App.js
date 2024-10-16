@@ -8,13 +8,11 @@ import Drinks from './Pages/Drinks';
 import Others from './Pages/Others';
 import About from './Pages/About';
 import NotFound from './Pages/NotFound';
-import Logo from './Pages/img/Logo.webp'
 import { Cart } from './Pages/Cart';
-import Cart2 from './Pages/img/Cart2.png'
 import Signup from './Pages/Signup.js'
 import Login from './Pages/Login.js'
 import LoginBar from './components/login-bar.js';
-
+import Header from './components/Header.js';
 
 function App() {
 
@@ -22,26 +20,19 @@ function App() {
     <>
       <Router>
         <div className='header'>
-          <div className='Page-title'>
-            <img src={Logo} className='logo' alt='Page Logo'></img>
-            <h1 >Legendary Items Market </h1>
-            
-            <Link to="/Cart" className='Page-title-Cart'>
-              <img src={Cart2} style={{ height: '70px', width: '70px' }}></img>
-            </Link>
-
-          </div>
-          <LoginBar />  
-          <Navbar />
-          <hr className='Custom-hr'></hr>
+          <Header />
         </div>
+        <LoginBar />
+        <Navbar />
+        <hr className='Custom-hr'></hr>
+
 
 
 
         <Routes>
-          <Route path='/' element={<About />} />
+          <Route path='/' element={<Home />} />
           <Route path="/item/:id" element={<Item />} />
-          <Route path="/Home" element={<Home />} />
+          <Route path="/About" element={<About />} />
           <Route path='/Food' element={<Food />} />
           <Route path='/Drinks' element={<Drinks />} />
           <Route path='/Others' element={<Others />} />

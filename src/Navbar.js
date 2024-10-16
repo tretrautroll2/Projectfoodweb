@@ -1,11 +1,11 @@
 const NavItems = [
   {
     name: "About",
-    info: "/"
+    info: "/About"
   },
   {
     name: "Home",
-    info: "/Home"
+    info: "/"
   },
   {
     name: "Food",

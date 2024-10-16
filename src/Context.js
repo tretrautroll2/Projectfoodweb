@@ -47,7 +47,15 @@ export const CartContextProvider = ({ children }) => {
 
     console.log('Check', currentUser)
     console.log('Check2', cartItems);
-
+    
+    const getTotalItems = () => {
+        let total = 0;
+        for (const item in cartItems) {
+            total += cartItems[item]
+        }
+        return total;
+    }
+ 
     const getTotal = () => {
         let total = 0;
         for (const item in cartItems) {
@@ -76,7 +84,7 @@ export const CartContextProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateCartItems, getTotal, clearCart }}>
+        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateCartItems, getTotal, clearCart, getTotalItems}}>
             {children}
         </CartContext.Provider>
     )

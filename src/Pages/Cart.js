@@ -3,7 +3,7 @@ import { Allitems } from "../Allitems";
 import { useCart } from "../Context";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 export const Cart = () => {
-    const { cartItems, removeFromCart, addToCart, updateCartItems, getTotal, clearCart } = useCart();
+    const { cartItems, removeFromCart, addToCart, updateCartItems, getTotal, clearCart} = useCart();
     const totalAmount = getTotal();
     return (
         <div className="cart-container">
