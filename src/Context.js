@@ -10,7 +10,8 @@ export const CartContextProvider = ({ children }) => {
     const { products } = useItem();
     const [cartItems, setCartItems] = useState({});
     const { currentUser } = useAuth();
-    
+    const cartFromLocalStorage = JSON.parse(localStorage.getItem("cartItems")) || {};
+
     useEffect(() => {
         const fetchCartData = async () => {
             if (currentUser) {
@@ -25,7 +26,7 @@ export const CartContextProvider = ({ children }) => {
                     setCartItems({});
                 }
             } else {
-                const cartFromLocalStorage = JSON.parse(localStorage.getItem("cartItems")) || {};
+                
                 setCartItems(cartFromLocalStorage);
             }
         };
@@ -62,7 +63,7 @@ export const CartContextProvider = ({ children }) => {
         for (const item in cartItems) {
             if (cartItems[item] > 0) {
                 let itemInfo = products.find((product) => product.id === item);
-                if(!itemInfo.price) return null;
+                if(!itemInfo.price) return total = 0;
                 total += cartItems[item] * itemInfo.price;
                 
             }

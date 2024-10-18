@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { firestore } from "../Config/firebase";
-import { setDoc, getDoc, doc, addDoc, collection } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { storage } from "../Config/firebase";
 import { getDownloadURL, ref, uploadBytes, } from "firebase/storage";
 
@@ -56,7 +56,7 @@ export default function AddItems() {
             setPrice('');
             setDescription('');
             setImage(null);
-            document.getElementById('file').value='';
+            document.getElementById('file').value = '';
         }
     }
 

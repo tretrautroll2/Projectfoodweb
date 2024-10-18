@@ -2,13 +2,17 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useCart } from "../Context";
 import { useItem } from './products-context';
-
+import SkeletonLoading from './skeleton-loading';
 
 const CartItem = () => {
-    const { products } = useItem();
+    const { products, isLoading } = useItem();
     const { addToCart, cartItems } = useCart();
     console.log('products in Cartitem:', products);
-    if (!products) return null
+    if (isLoading) {
+        return (
+          <SkeletonLoading />
+        )
+    } 
     return (
         <>
             <ul className="container">

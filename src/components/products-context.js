@@ -6,6 +6,7 @@ const ItemContext = createContext();
 
 export const ItemContextProvider = ({children}) => {
     const[products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const unsubcribe = onSnapshot(collection(firestore, 'items'), (querySnapshot) => {
@@ -17,12 +18,15 @@ export const ItemContextProvider = ({children}) => {
                 })
             })
             setProducts(productArray);
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 1500)
         })
         return () => unsubcribe();
     }, [])
  
     return(
-        <ItemContext.Provider value={{products}}>
+        <ItemContext.Provider value={{products, isLoading}}>
         {children}
         </ItemContext.Provider>
     )

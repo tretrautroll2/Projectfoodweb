@@ -2,11 +2,16 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useCart } from "../Context";
 import { useItem } from '../components/products-context';
+import SkeletonLoading from '../components/skeleton-loading';
 
 export default function Drinks() {
-    const { products } = useItem();
+    const { products, isLoading } = useItem();
     const { addToCart, cartItems } = useCart();
-    if (!products) return null
+    if (isLoading) {
+        return (
+            <SkeletonLoading />
+        )
+    }
     return (
         <>
             <ul className='no-list container'>

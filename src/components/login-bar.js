@@ -6,7 +6,7 @@ export default function LoginBar() {
     const navigate = useNavigate();
     const handleSignOut = async () => {
         await signOut(auth);
-        navigate('/Home');
+        navigate('/');
         alert('Signed out!');
     };
     const { currentUser, username, loading } = useAuth();
