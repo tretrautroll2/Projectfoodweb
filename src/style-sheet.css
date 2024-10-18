@@ -277,6 +277,7 @@ ul{
     flex-flow: column wrap;
     align-items: center;
     border: 2px solid black;
+    margin: 0 10%;
 }
 
 .cart-container h2 {
