@@ -62,7 +62,9 @@ export const CartContextProvider = ({ children }) => {
         for (const item in cartItems) {
             if (cartItems[item] > 0) {
                 let itemInfo = products.find((product) => product.id === item);
-                total += cartItems[item] * itemInfo.price
+                if(!itemInfo.price) return null;
+                total += cartItems[item] * itemInfo.price;
+                
             }
         }
         return total;
