@@ -1,18 +1,18 @@
 
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useCart } from "../Context";
-import { Allitems } from '../Allitems';
+import { useItem } from './products-context';
 
 
 const CartItem = () => {
-
+    const { products } = useItem();
     const { addToCart, cartItems } = useCart();
-    if (!Allitems) return null
+    console.log('products in Cartitem:', products);
+    if (!products) return null
     return (
         <>
             <ul className="container">
-                {Allitems.map((item) => {
-                    // console.log("Log", cartItems[item.id])
+                {products.map((item) => {
 
                     return (
                         <li key={item.id} className='item'>

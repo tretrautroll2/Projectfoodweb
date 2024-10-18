@@ -24,6 +24,9 @@ export default function Signup() {
                 email: email,
                 password: password
             });
+            setUsername('');
+            setEmail('');
+            setPassword('');
             console.log(user);
             navigate('/Login');
             alert('Signup successful');

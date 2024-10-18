@@ -1,15 +1,16 @@
 
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useCart } from "../Context";
-import { Allitems } from "../Allitems";
+import { useItem } from '../components/products-context';
 
 export default function Drinks() {
+    const { products } = useItem();
     const { addToCart, cartItems } = useCart();
-    if (!Allitems) return null
+    if (!products) return null
     return (
         <>
             <ul className='no-list container'>
-                {Allitems.filter(item => item.type === "drinks").map((item) => (
+                {products.filter(item => item.type === "drinks").map((item) => (
                     <li key={item.id} className='item'>
                         <Link to={`/item/${item.id}`}
                             className='item-center no-link'>

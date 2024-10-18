@@ -14,7 +14,7 @@ export default function Login() {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential;
-                navigate('/Home');
+                navigate('/');
                 alert('Login succesful');
                 console.log(user);
             })
@@ -29,7 +29,7 @@ export default function Login() {
 
     useEffect(() => {
         if (currentUser) {
-            navigate('/Home')
+            navigate('/')
         }
     }, [currentUser]);
 

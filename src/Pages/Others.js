@@ -1,20 +1,16 @@
 
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useCart } from "../Context";
-import { Allitems } from "../Allitems";
+import { useItem } from '../components/products-context';
 
-
-export const AllOtherItems = [
-
-]
 export default function Others() {
-    // const [selectedItem, setSelectedItem] = useState(null);
+    const { products } = useItem();
     const { addToCart, cartItems } = useCart();
-    if (!Allitems) return null
+    if (!products) return null
     return (
         <>
             <ul className="no-list container">
-                {Allitems.filter(item => item.type === "others").map((item) => (<li key={item.id} className='item'>
+                {products.filter(item => item.type === "others").map((item) => (<li key={item.id} className='item'>
                     <Link to={`/Item/${item.id}`}
                         className='item-center no-link'>
                         <img className='img' src={item.image} alt="ShitImage"></img>

@@ -13,6 +13,9 @@ import Signup from './Pages/Signup.js'
 import Login from './Pages/Login.js'
 import LoginBar from './components/login-bar.js';
 import Header from './components/Header.js';
+import AddItems from './components/add-item-to-store.js';
+import AllItemsStorage from './components/products-context.js';
+
 
 function App() {
 
@@ -25,10 +28,6 @@ function App() {
         <LoginBar />
         <Navbar />
         <hr className='Custom-hr'></hr>
-
-
-
-
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path="/item/:id" element={<Item />} />
@@ -39,6 +38,7 @@ function App() {
           <Route path='/Cart' element={<Cart />} />
           <Route path='/Signup' element={<Signup />} />
           <Route path='/Login' element={<Login />} />
+          <Route path='/Additems' element={<AddItems />} />
           <Route component={NotFound} />
         </Routes>
       </Router>

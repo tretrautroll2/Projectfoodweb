@@ -1,12 +1,14 @@
 import { useParams } from 'react-router-dom';
-import { Allitems } from "../Allitems";
+import { useItem } from '../components/products-context';
 import { useCart } from '../Context';
 
 
 export default function Item() {
+    const { products } = useItem();
     const { addToCart, cartItems } = useCart();
     const { id } = useParams();
-    const selectedItem = Allitems.find(item => item.id === parseInt(id))
+    const selectedItem = products.find(item => item.id === id)
+    console.log(products)
     if (!selectedItem) {
         return <p>Item not found</p>;
     }

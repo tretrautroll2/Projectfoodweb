@@ -1,15 +1,16 @@
 
-import { Allitems } from "../Allitems";
+import { useItem } from "../components/products-context";
 import { useCart } from "../Context";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 export const Cart = () => {
+    const { products } = useItem();
     const { cartItems, removeFromCart, addToCart, updateCartItems, getTotal, clearCart} = useCart();
     const totalAmount = getTotal();
     return (
         <div className="cart-container">
             <h2>Your Cart</h2>
             <hr className="dotted-line"></hr>
-            {Allitems.map((item) => {
+            {products.map((item) => {
                 if (cartItems[item.id] > 0) {
                     return (
                         <div className="cart-item" key={item.id}>

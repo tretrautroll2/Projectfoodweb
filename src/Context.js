@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Allitems } from "./Allitems";
+import { useItem } from "./components/products-context";
 import { firestore } from "./Config/firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { useAuth } from "./components/user-status";
@@ -7,6 +7,7 @@ import { useAuth } from "./components/user-status";
 const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
+    const { products } = useItem();
     const [cartItems, setCartItems] = useState({});
     const { currentUser } = useAuth();
     
@@ -60,7 +61,7 @@ export const CartContextProvider = ({ children }) => {
         let total = 0;
         for (const item in cartItems) {
             if (cartItems[item] > 0) {
-                let itemInfo = Allitems.find((product) => product.id === Number(item));
+                let itemInfo = products.find((product) => product.id === item);
                 total += cartItems[item] * itemInfo.price
             }
         }
