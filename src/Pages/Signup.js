@@ -10,6 +10,7 @@ export default function Signup() {
     const [userName, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const[admin, setAdmin] = useState(false);
 
     const navigate = useNavigate();
 
@@ -22,7 +23,8 @@ export default function Signup() {
             await setDoc(doc(firestore, 'users', user.uid), {
                 username: userName,
                 email: email,
-                password: password
+                password: password,
+                admin: admin
             });
             setUsername('');
             setEmail('');
@@ -60,6 +62,8 @@ return (
             <label>Password</label>
             <input type="password" required onChange={(e) => setPassword(e.target.value)} value={password}></input>
             <br></br>
+            <label>Are you an admin ?</label>
+            <input type='checkbox' onChange={(e) => setAdmin(true)} value={admin}></input>
             <span>Already have an account? <Link to='/Login'>Log in</Link> here</span>
             <br></br>
             <button type='submit'>Sign up</button>

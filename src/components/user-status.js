@@ -11,6 +11,7 @@ export const AuthContextProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [username, setUsername] = useState('');
     const [loading, setLoading] = useState(true);
+    const[isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -20,6 +21,7 @@ export const AuthContextProvider = ({ children }) => {
                 const userDoc = await getDoc(userDocRef)
                 if(userDoc.exists()) {
                     setUsername(userDoc.data().username);
+                    setIsAdmin(userDoc.data().admin)
                 } else {
                     console.log('no data found')
                 }
@@ -35,7 +37,7 @@ export const AuthContextProvider = ({ children }) => {
     console.log('username:', username)
 
     return (
-        <AuthContext.Provider value={{ currentUser, username, loading }}>
+        <AuthContext.Provider value={{ currentUser, username, loading, isAdmin }}>
             {children}
         </AuthContext.Provider>
     )
